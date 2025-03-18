@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  background-color: rgb(54, 198, 59);
+}
+header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+header .navbar .logo {
+  padding-left: 2rem;
+  align-items: center;
+}
+header .navbar .logo img {
+  max-width: 100px;
+  height: 60px;
+}
+header .navbar .navtag nav ul {
+  display: flex;
+  font-size: 1.2rem;
+  gap: 2rem;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+header .navbar .navtag nav ul li {
+  font-weight: 900;
+}
+header .navbar .navtag nav ul li:hover {
+  transform: scale(1.2);
+}
+header .navbar .navtag nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+header .navbar .navtag nav ul li a:hover {
+  color: rgb(143, 100, 222);
+}
+header .navbar .button-group {
+  padding: 15px 30px;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+header .navbar .button-group button {
+  padding: 0.7rem;
+  border-radius: 1rem;
+  color: #ffffff;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+}
+header .navbar .button-group button:hover {
+  transform: scale(1.1);
+}
+header .navbar .button-group button a {
+  color: #ffffff;
+  text-decoration: none;
+}
+header .navbar .button-group button a:hover {
+  color: rgb(143, 100, 222);
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+footer .footer-content {
+  flex-grow: 1;
+  text-align: center;
+}
+footer .footer-content p {
+  margin: 0;
+}
+footer a {
+  color: #4caf50;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+.flag img {
+  height: 35px;
+  width: 45px;
+}
