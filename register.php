@@ -1,6 +1,5 @@
-<div class="py-4 bg-secondary text-center">
-    <h4 class="text-white">REGISTER</h4>
-</div>
+<?php include('links.php'); ?>
+
 
 <div class="py-5">
     <div class="container">
