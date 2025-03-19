@@ -27,18 +27,18 @@
                                     required>
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Profile Image</label>
+                                <input type="file" name="profile_image" class="form-control">
+                            </div>
+                            <div class="mb-3">
                                 <label for="password">Passsword</label>
-                                <input type="password" name="password" placeholder="Password" class="form-control"
+                                <input type="password" name="password" placeholder="Create Password" class="form-control"
                                     required>
                             </div>
                             <div class="mb-3">
                                 <label for="confirm_password">Confirm Passsword</label>
                                 <input type="password" name="confirm_password" placeholder="Confirm Password"
                                     class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Profile Image</label>
-                                <input type="file" name="profile_image" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <select class="input-field w-100" name="role" required>
@@ -49,7 +49,11 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-primary w-100" name="registerBtn" type="submit">REGISTER</button>
+                                <button class="btn btn-success w-100" name="registerBtn" type="submit"
+                                    onmouseover="this.style.backgroundColor='darkgreen'; this.style.color='white';"
+                                    onmouseout="this.style.backgroundColor=''; this.style.color='';">
+                                    REGISTER
+                                </button>
                             </div>
                             <center>
                                 <p>Already have an account? <a href="login.php">login here</a></p>
