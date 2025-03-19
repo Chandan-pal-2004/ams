@@ -45,7 +45,8 @@ include('includes/header.php');
                                     class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <select class="input-field w-100" name="role" required>
+                                <label for="select">Select Role</label>
+                                <select class="form-control w-100" name="role" required>
                                     <option value="" disabled selected>Select Role</option>
                                     <option value="admin">Admin</option>
                                     <option value="farmer">Farmer</option>
