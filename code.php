@@ -112,7 +112,7 @@ if (isset($_POST['registerBtn'])) {
                 echo "Email could not be sent. Error: {$mail->ErrorInfo}";
             }
             // Redirect to login page after successful registration
-            redirect('login.php', 'Registration SuccessFull!.Email has been send.');
+            redirect('login.php', 'Registration SuccessFull!.');
             //header("Location: login.php");
             exit();
         } else {
