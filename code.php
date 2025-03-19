@@ -14,6 +14,15 @@ if (isset($_POST['registerBtn'])) {
     $password = validate($_POST['password']);
     $role = validate($_POST['role']);
 
+    // Check if the email already exists in the database
+    $email_check_query = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+    $email_check_result = mysqli_query($conn, $email_check_query);
+
+    if (mysqli_num_rows($email_check_result) > 0) {
+        redirect('register.php', 'Error: Email already exists. Please use a different email.');
+        exit();
+    }
+    
     // Generate user_id based on role
     $prefix = ($role == 'admin') ? 'A' : (($role == 'farmer') ? 'F' : 'U');
     $query = "SELECT COUNT(*) AS count FROM users WHERE role='$role'";
