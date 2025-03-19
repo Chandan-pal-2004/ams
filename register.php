@@ -1,3 +1,7 @@
+<?php
+$pageTitle = "REGISTER";
+include('includes/header.php');
+?>
 <?php include('links.php'); ?>
 
 
