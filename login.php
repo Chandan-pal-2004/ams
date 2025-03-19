@@ -30,11 +30,24 @@ include('links.php');
                                     required>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-primary w-100" name="loginBtn" type="submit">LOGIN</button>
+                                <button class="btn btn-success w-100" name="loginBtn" type="submit"
+                                    onmouseover="this.style.backgroundColor='darkgreen'; this.style.color='white';"
+                                    onmouseout="this.style.backgroundColor=''; this.style.color='';">
+                                    LOGIN
+                                </button>
                             </div>
                             <center>
-                                <p>Don't have an account? <a href="register.php">Register here</a></p>
-                                <p><a href="forgot.php">Forgot Password?</a></p>
+                                <p>
+                                    <span class="text-danger">Don't have an account?</span>
+                                    <a href="register.php" class="fw-bold" onmouseover="this.style.color='blue';" onmouseout="this.style.color='';">
+                                        Register Here
+                                    </a>
+                                </p>
+                                <p>
+                                    <a href="forgot.php" class="fw-bold" onmouseover="this.style.color='red';" onmouseout="this.style.color='';">
+                                        Forgot Password?
+                                    </a>
+                                </p>
                             </center>
 
                         </form>

@@ -19,7 +19,7 @@ if (isset($_POST['registerBtn'])) {
     $email_check_result = mysqli_query($conn, $email_check_query);
 
     if (mysqli_num_rows($email_check_result) > 0) {
-        redirect('register.php', 'Error: Email already exists. Please use a different email.');
+        redirect('register.php', 'Email already exists. Use a different email.');
         exit();
     }
     
@@ -43,35 +43,36 @@ if (isset($_POST['registerBtn'])) {
         }
     }
 
-    if ($name != '' || $email != '' || $phone != '' || $password != '' || $role != '') {
-        $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
+    if ($name != '' || $email != '' || $phone != '' || $password != '' || $confirm_password !='' || $role != '') {
 
-        $query = "INSERT INTO users (user_id, name, email, phone,profile_image, password, role) 
+            $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
+
+            $query = "INSERT INTO users (user_id, name, email, phone,profile_image, password, role) 
             VALUES ('$user_id', '$name', '$email', '$phone','$profile_image','$hashedpassword', '$role')";
 
-        $result = mysqli_query($conn, $query);
+            $result = mysqli_query($conn, $query);
 
-        if ($result) {
-            // Send Email with User ID
-            $mail = new PHPMailer(true);
-            try {
-                // SMTP Server Settings
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com'; // Change if using another provider
-                $mail->SMTPAuth = true;
-                $mail->Username = 'farmerworld356@gmail.com'; // Your Gmail address
-                $mail->Password = 'xkum rvvp micv fmty'; // Use an App Password
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port = 587;
+            if ($result) {
+                // Send Email with User ID
+                $mail = new PHPMailer(true);
+                try {
+                    // SMTP Server Settings
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com'; // Change if using another provider
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'farmerworld356@gmail.com'; // Your Gmail address
+                    $mail->Password = 'xkum rvvp micv fmty'; // Use an App Password
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                    $mail->Port = 587;
 
-                // Email Settings
-                $mail->setFrom('farmerworld356@gmail.com', 'Farm Management');
-                $mail->addAddress($email, $name);
-                $mail->isHTML(true);
-                $mail->Subject = 'Welcome to Farm Management System - Your User ID';
+                    // Email Settings
+                    $mail->setFrom('farmerworld356@gmail.com', 'Farm Management');
+                    $mail->addAddress($email, $name);
+                    $mail->isHTML(true);
+                    $mail->Subject = 'Welcome to Farm Management System - Your User ID';
 
-                // Email Body (HTML Template)
-                $mail->Body = "
+                    // Email Body (HTML Template)
+                    $mail->Body = "
                 <div style='max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; font-family: Arial, sans-serif;'>
                     <div style='background: #28a745; padding: 15px; text-align: center; color: white; border-radius: 10px 10px 0 0;'>
                         <h2>Welcome to Farm Management System</h2>
@@ -99,7 +100,7 @@ if (isset($_POST['registerBtn'])) {
                         </table>
                         <p style='margin-top: 20px;'>You can now log in to your account and start using our services.</p>
                         <div style='text-align: center; margin-top: 20px;'>
-                            <a href='http://localhost/new/login.php' style='padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px;'>Login Now</a>
+                            <a href='http://localhost/ams/login.php' style='padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px;'>Login Now</a>
                         </div>
                     </div>
                     <div style='background: #28a745; padding: 10px; text-align: center; color: white; border-radius: 0 0 10px 10px; font-size: 14px;'>
@@ -107,18 +108,17 @@ if (isset($_POST['registerBtn'])) {
                     </div>
                 </div>
             ";
-                $mail->send();
-            } catch (Exception $e) {
-                echo "Email could not be sent. Error: {$mail->ErrorInfo}";
+                    $mail->send();
+                } catch (Exception $e) {
+                    echo "Email could not be sent. Error: {$mail->ErrorInfo}";
+                }
+                // Redirect to login page after successful registration
+                redirect('login.php', 'Registration SuccessFull!.');
+                //header("Location: login.php");
+                exit();
+            } else {
+                redirect('register.php', 'Something Went Wrong');
             }
-            // Redirect to login page after successful registration
-            redirect('login.php', 'Registration SuccessFull!.');
-            //header("Location: login.php");
-            exit();
-        } else {
-            redirect('register.php', 'Something Went Wrong');
-        }
-
     } else {
         redirect('register.php', 'All Fields are mandatory');
     }

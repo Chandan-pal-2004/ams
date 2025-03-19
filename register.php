@@ -15,8 +15,8 @@ include('includes/header.php');
                     </div>
                     <div class="card-body">
 
-                    <?= alertMessage(); ?>
-                    
+                        <?= alertMessage(); ?>
+
                         <form action="code.php" method="POST" enctype="multipart/form-data">
 
                             <div class="mb-3">
@@ -25,12 +25,15 @@ include('includes/header.php');
                             </div>
                             <div class="mb-3">
                                 <label for="email">Email Address</label>
-                                <input type="email" id="email" placeholder="Email" name="email" class="form-control" required>
+                                <input type="email" id="email" placeholder="Email" name="email" class="form-control"
+                                    required>
+                                <center><span id="emailError" class="error-message text-danger"></span></center>
                             </div>
                             <div class="mb-3">
                                 <label>Phone</label>
-                                <input type="phone" placeholder="Phone number" class="form-control" name="phone"
-                                    required>
+                                <input type="phone" placeholder="Phone number" class="form-control" id="phone"
+                                    name="phone" oninput="validatePhone()" required>
+                                <center><span id="phoneError" class="error-message text-danger"></span></center>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Profile Image</label>
@@ -38,13 +41,13 @@ include('includes/header.php');
                             </div>
                             <div class="mb-3">
                                 <label for="password">Passsword</label>
-                                <input type="password" id="password" name="password" placeholder="Create Password" class="form-control"
-                                    required>
+                                <input type="password" id="password" name="password" placeholder="Create Password"
+                                    class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label for="confirm_password">Confirm Password</label>
-                                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"
-                                    class="form-control" required>
+                                <input type="password" id="confirm_password" name="confirm_password"
+                                    placeholder="Confirm Password" class="form-control" required>
                             </div>
                             <center><span id="passwordError" class="error-message"></span></center>
                             <div class="mb-3">
@@ -64,7 +67,13 @@ include('includes/header.php');
                                 </button>
                             </div>
                             <center>
-                                <p>Already have an account? <a href="login.php">login here</a></p>
+                                <p>
+                                    <span class="text-primary">Already have an account?</span>
+                                    <a href="login.php" class="fw-bold" onmouseover="this.style.color='red';"
+                                        onmouseout="this.style.color='';">
+                                        Login Here
+                                    </a>
+                                </p>
                             </center>
                         </form>
                     </div>
