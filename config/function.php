@@ -73,4 +73,15 @@ function alertMessage()
     }
 }
 
+function getAll($tableName)
+{
+    global $conn;
+
+    $table = validate($tableName);
+
+    $query = "SELECT * FROM $table";
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
+
 ?>
