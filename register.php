@@ -15,6 +15,8 @@ include('includes/header.php');
                     </div>
                     <div class="card-body">
 
+                    <?= alertMessage(); ?>
+                    
                         <form action="code.php" method="POST" enctype="multipart/form-data">
 
                             <div class="mb-3">

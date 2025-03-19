@@ -61,4 +61,15 @@ function redirect($url, $status)
     header('Location:' . $url);
     exit;
 }
+
+function alertMessage()
+{
+    if (isset($_SESSION['status'])) {
+        echo '<div class="alert alert-success">
+                <h4>' . $_SESSION['status'] . '</h4>
+            </div>';
+        unset($_SESSION['status']);
+    }
+}
+
 ?>

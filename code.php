@@ -7,6 +7,7 @@ require 'PHPMailer/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+
 if (isset($_POST['registerBtn'])) {
     $name = validate($_POST['name']);
     $email = validate($_POST['email']);
@@ -71,10 +72,22 @@ if (isset($_POST['registerBtn'])) {
                         <p style='font-size: 18px;'>Hello <strong>$name</strong>,</p>
                         <p>Thank you for registering on our platform. Below are your account details:</p>
                         <table style='width: 100%; border-collapse: collapse; margin-top: 10px;'>
-                            <tr><td><strong>User ID:</strong></td><td>$user_id</td></tr>
-                            <tr><td><strong>Email:</strong></td><td>$email</td></tr>
-                            <tr><td><strong>Phone:</strong></td><td>$phone</td></tr>
-                            <tr><td><strong>Role:</strong></td><td>$role</td></tr>
+                            <tr>
+                                <td style='padding: 10px; background: #f2f2f2; font-weight: bold;'>User ID:</td>
+                                <td style='padding: 10px; background: #f9f9f9;'>$user_id</td>
+                            </tr>
+                            <tr>
+                                <td style='padding: 10px; background: #f2f2f2; font-weight: bold;'>Email:</td>
+                                <td style='padding: 10px; background: #f9f9f9;'>$email</td>
+                            </tr>
+                            <tr>
+                                <td style='padding: 10px; background: #f2f2f2; font-weight: bold;'>Phone:</td>
+                                <td style='padding: 10px; background: #f9f9f9;'>$phone</td>
+                            </tr>
+                            <tr>
+                                <td style='padding: 10px; background: #f2f2f2; font-weight: bold;'>Role:</td>
+                                <td style='padding: 10px; background: #f9f9f9;'>$role</td>
+                            </tr>
                         </table>
                         <p style='margin-top: 20px;'>You can now log in to your account and start using our services.</p>
                         <div style='text-align: center; margin-top: 20px;'>
@@ -84,8 +97,8 @@ if (isset($_POST['registerBtn'])) {
                     <div style='background: #28a745; padding: 10px; text-align: center; color: white; border-radius: 0 0 10px 10px; font-size: 14px;'>
                         &copy; 2025 Farm Management System | All Rights Reserved
                     </div>
-                </div>";
-
+                </div>
+            ";
                 $mail->send();
             } catch (Exception $e) {
                 echo "Email could not be sent. Error: {$mail->ErrorInfo}";
@@ -101,7 +114,5 @@ if (isset($_POST['registerBtn'])) {
     } else {
         redirect('register.php', 'All Fields are mandatory');
     }
-} else {
-    redirect('register.php', 'Something Went Wrong');
 }
 ?>
