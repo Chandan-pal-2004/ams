@@ -55,4 +55,10 @@ function validate($inputData)
 
 }
 
+function redirect($url, $status)
+{
+    $_SESSION['status'] = "$status";
+    header('Location:' . $url);
+    exit;
+}
 ?>

@@ -7,7 +7,7 @@
         <p>&copy; 2025 AgriManage. All rights reserved. | <a href="#">Privacy Policy</a></p>
     </div>
 </footer>
-
+<script src="includes/style.js"></script>
 </body>
 
 </html>

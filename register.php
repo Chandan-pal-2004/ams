@@ -23,7 +23,7 @@ include('includes/header.php');
                             </div>
                             <div class="mb-3">
                                 <label for="email">Email Address</label>
-                                <input type="email" placeholder="Email" name="email" class="form-control" required>
+                                <input type="email" id="email" placeholder="Email" name="email" class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label>Phone</label>
@@ -36,17 +36,18 @@ include('includes/header.php');
                             </div>
                             <div class="mb-3">
                                 <label for="password">Passsword</label>
-                                <input type="password" name="password" placeholder="Create Password" class="form-control"
+                                <input type="password" id="password" name="password" placeholder="Create Password" class="form-control"
                                     required>
                             </div>
                             <div class="mb-3">
-                                <label for="confirm_password">Confirm Passsword</label>
-                                <input type="password" name="confirm_password" placeholder="Confirm Password"
+                                <label for="confirm_password">Confirm Password</label>
+                                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"
                                     class="form-control" required>
                             </div>
+                            <center><span id="passwordError" class="error-message"></span></center>
                             <div class="mb-3">
                                 <label for="select">Select Role</label>
-                                <select class="form-control w-100" name="role" required>
+                                <select class="form-select w-100" name="role" required>
                                     <option value="" disabled selected>Select Role</option>
                                     <option value="admin">Admin</option>
                                     <option value="farmer">Farmer</option>
