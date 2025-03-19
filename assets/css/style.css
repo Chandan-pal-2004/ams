@@ -26,7 +26,7 @@ header .navbar .logo {
 }
 header .navbar .logo img {
   height: auto;
-  max-width: 80px;
+  max-width: 100px;
 }
 header .navbar .navtag nav ul {
   display: flex;
@@ -99,20 +99,4 @@ footer a:hover {
 .flag img {
   height: 35px;
   width: 45px;
-}
-
-@media (max-width: 768px) {
-  header .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-  header .navbar .navtag nav ul {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-}
-img {
-  max-width: 100%;
-  height: auto;
 }
