@@ -84,4 +84,30 @@ function getAll($tableName)
     return $result;
 }
 
+function checkParamId($paramType)
+{
+    if (isset($_GET[$paramType])) {
+        if ($_GET[$paramType] != null) {
+            return $_GET[$paramType];
+        } else {
+            return 'No Id Found';
+        }
+    } else {
+        return 'No Id is given';
+    }
+}
+
+function deleteQuery($tableName, $id)
+{
+
+    global $conn;
+
+    $table = validate($tableName);
+    $id = validate($id);
+
+    $query = "DELETE FROM $table WHERE id='$id' LIMIT 1";
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
+
 ?>

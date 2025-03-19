@@ -114,7 +114,6 @@ if (isset($_POST['registerBtn'])) {
                 }
                 // Redirect to login page after successful registration
                 redirect('login.php', 'Registration SuccessFull!.');
-                //header("Location: login.php");
                 exit();
             } else {
                 redirect('register.php', 'Something Went Wrong');
