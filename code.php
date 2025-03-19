@@ -123,4 +123,56 @@ if (isset($_POST['registerBtn'])) {
         redirect('register.php', 'All Fields are mandatory');
     }
 }
+
+if (isset($_POST['loginBtn'])) {
+    $identifier = validate($_POST['identifier']);
+    $password = validate($_POST['password']);
+
+    // Fetch user details from database
+    $query = "SELECT * FROM users WHERE email='$identifier' OR user_id='$identifier' LIMIT 1";
+    $result = mysqli_query($conn, $query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+
+        // Check if the user is banned
+        if ($user['is_ban'] == 1) {
+            redirect('login.php', 'Your account has been banned. Contact Admin.');
+            exit();
+        }
+
+        // Verify password
+        if (password_verify($password, $user['password'])) {
+            // Store session variables
+            $_SESSION['auth'] = true;
+            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['name'] = $user['name']; 
+            $_SESSION['role'] = $user['role'];
+
+            // Redirect users based on their role
+            switch ($user['role']) {
+                case 'admin':
+                    redirect('admin/index.php', 'Welcome Admin!');
+                    break;
+                case 'farmer':
+                    redirect('farmer/index.php', 'Welcome Farmer!');
+                    break;
+                case 'user':
+                    redirect('user/index.php', 'Welcome User!');
+                    break;
+                default:
+                    redirect('index.php', 'Something Went Wrong!');
+                    break;
+            }
+            exit();
+        } 
+        else {
+            redirect('login.php','Invalid password!');
+        }
+    } 
+    else {
+        redirect('login.php','User not found!');
+    }
+}
 ?>
