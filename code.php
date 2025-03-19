@@ -7,7 +7,6 @@ require 'PHPMailer/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
 if (isset($_POST['registerBtn'])) {
     $name = validate($_POST['name']);
     $email = validate($_POST['email']);
