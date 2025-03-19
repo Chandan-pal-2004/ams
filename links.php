@@ -10,3 +10,23 @@
 
 <!-- CSS Files -->
 <link id="pagestyle" href="/ams/assets/css/soft-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<!--   Core JS Files   -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/ams/assets/js/core/popper.min.js"></script>
+<script src="/ams/assets/js/core/bootstrap.min.js"></script>
+<script src="/ams/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="/ams/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="/ams/assets/js/plugins/chartjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+
+<!-- Control Center for Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="/ams/assets/js/soft-ui-dashboard.min.js?v=1.1.0"></script>
