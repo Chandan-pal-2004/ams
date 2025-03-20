@@ -111,14 +111,19 @@ if (isset($_POST['saveUser'])) {
             ";
 
                 $mail->send();
-                redirect('users.php', 'Added Successfully!.');
             } catch (Exception $e) {
-                echo "Email could not be sent. Error: {$mail->ErrorInfo}";
+                echo "<script>alert('User Added,Email could not be sent. Error: {$mail->ErrorInfo}');</script>";
+                //echo "Email could not be sent. Error: {$mail->ErrorInfo}";
             }
+            
+            redirect('users.php', 'Added Successfully!.');
+
         } else {
             redirect('users-create.php', 'Something Went Wrong!.');
         }
-    } else {
+
+    } 
+    else {
         redirect('users-create.php', 'Please fill all input fields.');
     }
 }

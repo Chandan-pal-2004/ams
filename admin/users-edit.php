@@ -49,15 +49,21 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label>Phone No.</label>
-                                            <input type="text" name="phone" value="<?= $user['data']['phone']; ?>"
+                                            <input type="text" id="phone" name="phone" oninput="validatePhone()" value="<?= $user['data']['phone']; ?>"
                                                 class="form-control" required>
+                                            <center>
+                                                <span id="phoneError" class="error-message text-danger"></span>
+                                            </center>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label>Email</label>
-                                            <input type="email" name="email" value="<?= $user['data']['email']; ?>"
+                                            <input type="email" id="email" name="email" value="<?= $user['data']['email']; ?>"
                                                 class="form-control" required>
+                                            <center>
+                                                <span id="emailError" class="error-message text-danger"></span>
+                                            </center>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

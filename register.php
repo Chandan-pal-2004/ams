@@ -30,7 +30,7 @@ include('includes/header.php');
                                 <center><span id="emailError" class="error-message text-danger"></span></center>
                             </div>
                             <div class="mb-3">
-                                <label>Phone</label>
+                                <label>Phone No.</label>
                                 <input type="phone" placeholder="Phone number" class="form-control" id="phone"
                                     name="phone" oninput="validatePhone()" required>
                                 <center><span id="phoneError" class="error-message text-danger"></span></center>

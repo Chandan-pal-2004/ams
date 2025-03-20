@@ -33,13 +33,20 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label>Phone No.</label>
-                                            <input type="text" name="phone" class="form-control" required>
+                                            <input type="text" id="phone" name="phone" oninput="validatePhone()"
+                                                class="form-control" required>
+                                            <center>
+                                                <span id="phoneError" class="error-message text-danger"></span>
+                                            </center>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label>Email</label>
-                                            <input type="email" name="email" class="form-control" required>
+                                            <input type="email" name="email" id="email" class="form-control" required>
+                                            <center>
+                                                <span id="emailError" class="error-message text-danger"></span>
+                                            </center>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
