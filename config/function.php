@@ -110,4 +110,12 @@ function deleteQuery($tableName, $id)
     return $result;
 }
 
+function logoutSession()
+{
+    unset($_SESSION['auth']);
+    unset($_SESSION['loggedInUserRole']);
+    unset($_SESSION['loggedInUserId']);
+    unset($_SESSION['loggedInUserName']);
+    unset($_SESSION['loggedInUserEmail']);
+}
 ?>

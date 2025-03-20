@@ -1,8 +1,7 @@
 <?php
 $pageTitle = "REGISTER";
-include('includes/header.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/ams/includes/header.php');
 ?>
-<?php include('links.php'); ?>
 
 
 <div class="py-5">
@@ -69,7 +68,7 @@ include('includes/header.php');
                             <center>
                                 <p>
                                     <span class="text-primary">Already have an account?</span>
-                                    <a href="login.php" class="fw-bold" onmouseover="this.style.color='red';"
+                                    <a href="/ams/login.php" class="fw-bold" onmouseover="this.style.color='red';"
                                         onmouseout="this.style.color='';">
                                         Login Here
                                     </a>
@@ -82,4 +81,5 @@ include('includes/header.php');
         </div>
     </div>
 </div>
-<?php include('includes/footer.php'); ?>
+
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/includes/footer.php'); ?>

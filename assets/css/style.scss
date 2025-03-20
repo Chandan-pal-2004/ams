@@ -25,7 +25,7 @@ header {
       align-items: center;
       img {
         height: auto;
-        max-width: 100px;
+        max-width: 60px;
       }
     }
 
@@ -96,6 +96,10 @@ footer {
   color: white;
   padding: 1rem;
 
+  .flag img {
+    height: 35px;
+    width: 45px;
+  }
   .footer-content {
     flex-grow: 1;
     text-align: center;
@@ -112,9 +116,4 @@ footer {
       text-decoration: underline;
     }
   }
-}
-
-.flag img {
-  height: 35px;
-  width: 45px;
 }

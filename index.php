@@ -1,4 +1,6 @@
 <?php $pageTitle = "HOME"; ?>
-<?php include('includes/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/includes/header.php'); ?>
 
-<?php include('includes/footer.php'); ?>
+<?= alertMessage(); ?>
+
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/includes/footer.php'); ?>

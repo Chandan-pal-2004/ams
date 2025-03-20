@@ -1,9 +1,10 @@
 <?php
-include 'config/function.php'; // Include helper functions
+require($_SERVER['DOCUMENT_ROOT'] . '/ams/config/function.php');
 
-require 'PHPMailer/Exception.php';
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
+
+require ($_SERVER['DOCUMENT_ROOT'] . '/ams/PHPMailer/Exception.php');
+require ($_SERVER['DOCUMENT_ROOT'] . '/ams/PHPMailer/PHPMailer.php');
+require ($_SERVER['DOCUMENT_ROOT'] . '/ams/PHPMailer/SMTP.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -19,7 +20,7 @@ if (isset($_POST['registerBtn'])) {
     $email_check_result = mysqli_query($conn, $email_check_query);
 
     if (mysqli_num_rows($email_check_result) > 0) {
-        redirect('register.php', 'Email already exists. Use a different email.');
+        redirect('/ams/register.php', 'Email already exists. Use a different email.');
         exit();
     }
     
@@ -113,13 +114,13 @@ if (isset($_POST['registerBtn'])) {
                     echo "Email could not be sent. Error: {$mail->ErrorInfo}";
                 }
                 // Redirect to login page after successful registration
-                redirect('login.php', 'Registration SuccessFull!.');
+                redirect('/ams/login.php', 'Registration SuccessFull!.');
                 exit();
             } else {
-                redirect('register.php', 'Something Went Wrong');
+                redirect('/ams/register.php', 'Something Went Wrong');
             }
     } else {
-        redirect('register.php', 'All Fields are mandatory');
+        redirect('/ams/register.php', 'All Fields are mandatory');
     }
 }
 
@@ -132,46 +133,46 @@ if (isset($_POST['loginBtn'])) {
     $result = mysqli_query($conn, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
-        $user = mysqli_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
 
         // Check if the user is banned
-        if ($user['is_ban'] == 1) {
-            redirect('login.php', 'Your account has been banned. Contact Admin.');
+        if ($row['is_ban'] == 1) {
+            redirect('/ams/login.php', 'Your account has been banned. Contact Admin.');
             exit();
         }
 
         // Verify password
-        if (password_verify($password, $user['password'])) {
+        if (password_verify($password, $row['password'])) {
             // Store session variables
             $_SESSION['auth'] = true;
-            $_SESSION['user_id'] = $user['user_id'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['name'] = $user['name']; 
-            $_SESSION['role'] = $user['role'];
-
+            $_SESSION['loggedInUserRole'] = $row['role'];
+            $_SESSION['loggedInUserId'] = $row['user_id'];
+            $_SESSION['loggedInUserName'] = $row['name'];
+            $_SESSION['loggedInUserEmail'] = $row['email'];
+                        
             // Redirect users based on their role
-            switch ($user['role']) {
+            switch ($row['role']) {
                 case 'admin':
-                    redirect('admin/index.php', 'Welcome Admin!');
+                    redirect('/ams/admin/index.php', 'Welcome Admin!');
                     break;
                 case 'farmer':
-                    redirect('farmer/index.php', 'Welcome Farmer!');
+                    redirect('/ams/farmer/index.php', 'Welcome Farmer!');
                     break;
                 case 'user':
-                    redirect('user/index.php', 'Welcome User!');
+                    redirect('/ams/user/index.php', 'Welcome User!');
                     break;
                 default:
-                    redirect('index.php', 'Something Went Wrong!');
+                    redirect('/ams/index.php', 'Something Went Wrong!');
                     break;
             }
             exit();
         } 
         else {
-            redirect('login.php','Invalid password!');
+            redirect('/ams/login.php','Invalid password!');
         }
     } 
     else {
-        redirect('login.php','User not found!');
+        redirect('/ams/login.php','User not found!');
     }
 }
 ?>

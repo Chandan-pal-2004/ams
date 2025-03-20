@@ -1,4 +1,15 @@
+<title>
+    <?php if (isset($pageTitle)) {
+        echo $pageTitle;
+    } else {
+        echo webSetting('title') ?? 'AMS';
+    } ?>
+</title>
 <link rel="icon" type="image/png" href="/ams/assets/images/tractorlogo.png">
+
+    <link rel="stylesheet" href="/ams/assets/css/style.css">
+    <link rel="stylesheet" href="/ams/assets/css/styles.css">
+    
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
 <!--     Fonts and icons     -->

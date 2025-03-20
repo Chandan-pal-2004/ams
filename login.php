@@ -1,7 +1,23 @@
 <?php
 $pageTitle = "LOGIN";
-include('includes/header.php');
-include('links.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/ams/includes/header.php');
+
+if (isset($_SESSION['auth']) && isset($_SESSION['loggedInUserRole']) && isset($_SESSION['loggedInUserId']) && isset($_SESSION['loggedInUserName']) && isset($_SESSION['loggedInUserEmail'])) {
+
+    // Get role from session
+    $loggedInUserRole = $_SESSION['loggedInUserRole'];
+
+    // Redirect based on user role
+    if ($loggedInUserRole == 'admin') {
+        redirect('/ams/admin/index.php', 'You Are Already Logged In as Admin!');
+    } elseif ($loggedInUserRole == 'farmer') {
+        redirect('/ams/farmer/index.php', 'You Are Already Logged In as Farmer!');
+    } elseif ($loggedInUserRole == 'user') {
+        redirect('/ams/user/index.php', 'You Are Already Logged In as User!');
+    } else {
+        redirect('/ams/index.php', 'Log In First!');
+    }
+}
 ?>
 
 
@@ -58,4 +74,4 @@ include('links.php');
     </div>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/includes/footer.php');?>

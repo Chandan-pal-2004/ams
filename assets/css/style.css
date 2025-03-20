@@ -26,7 +26,7 @@ header .navbar .logo {
 }
 header .navbar .logo img {
   height: auto;
-  max-width: 100px;
+  max-width: 60px;
 }
 header .navbar .navtag nav ul {
   display: flex;
@@ -81,6 +81,10 @@ footer {
   color: white;
   padding: 1rem;
 }
+footer .flag img {
+  height: 35px;
+  width: 45px;
+}
 footer .footer-content {
   flex-grow: 1;
   text-align: center;
@@ -94,9 +98,4 @@ footer a {
 }
 footer a:hover {
   text-decoration: underline;
-}
-
-.flag img {
-  height: 35px;
-  width: 45px;
 }

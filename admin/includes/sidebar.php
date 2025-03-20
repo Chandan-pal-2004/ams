@@ -121,7 +121,7 @@ $pageName = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/"
         </ul>
     </div>
     <div class="sidenav-footer mx-3 ">
-        <a class="btn btn-danger mt-3 w-100" href="logout.php">
+        <a class="btn btn-danger mt-3 w-100" href="/ams/logout.php">
             LOGOUT
         </a>
     </div>
