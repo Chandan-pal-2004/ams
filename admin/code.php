@@ -134,4 +134,95 @@ if (isset($_POST['saveUser'])) {
     }
 }
 
+if (isset($_POST['updateUser'])) {
+    $name = validate($_POST['name']);
+    $phone = validate($_POST['phone']);
+    $email = validate($_POST['email']);
+    $password = validate($_POST['password']);
+    $is_ban = isset($_POST['is_ban']) ? 1 : 0;
+    $role = validate($_POST['role']);
+
+    $userId = validate($_POST['userId']);
+
+    // Ensure the phone number is exactly 10 digits
+    if (!preg_match("/^\d{10}$/", $phone)) {
+        redirect('users-edit.php?id=' . $userId, 'Invalid phone number Format! It must be exactly 10 digits.');
+        exit;
+    }
+
+    $user = getById('users', $userId);
+    if ($user['status'] != 200) {
+        redirect('users-edit.php?id=' . $userId, 'No Such Id Found');
+    }
+
+    if ($name != '' || $email != '' || $phone != '' || $password != '' || $role != '') {
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $query = "UPDATE users SET 
+                name = '$name',
+                phone ='$phone',
+                email ='$email',
+                password ='$hashedPassword',
+                is_ban ='$is_ban',
+                role ='$role'
+                WHERE id='$userId' ";
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+            redirect('users-edit.php?id=' . $userId, 'User/Admin Updated Successfully');
+        } else {
+            redirect('users-create.php', 'SomeThing Went Wrong');
+        }
+    } else {
+        redirect('users-create.php', 'Please fill all input fields');
+    }
+}
+
+if (isset($_POST['saveSetting'])) {
+    $title = validate($_POST['title']);
+    $slug = validate($_POST['slug']);
+    $small_description = validate($_POST['small_description']);
+
+    $meta_description = validate($_POST['meta_description']);
+    $meta_keyword = validate($_POST['meta_keyword']);
+
+    $email1 = validate($_POST['email1']);
+    $email2 = validate($_POST['email2']);
+    $phone1 = validate($_POST['phone1']);
+    $phone2 = validate($_POST['phone2']);
+    $address = validate($_POST['address']);
+
+    $settingId = validate($_POST['settingId']);
+
+    if ($settingId == 'insert') {
+        $query = "INSERT INTO settings (title,slug,small_description,meta_description,meta_keyword,email1,email2,phone1,phone2,address)
+                    VALUES ('$title','$slug','$small_description','$meta_description','$meta_keyword','$email1','$email2','$phone1','$phone2','$address')";
+
+        $result = mysqli_query($conn, $query);
+    }
+
+    if (is_numeric($settingId)) {
+        $query = "UPDATE settings SET 
+                    title = '$title',
+                    slug = '$slug',
+                    small_description = '$small_description',
+                    meta_description = '$meta_description',
+                    meta_keyword = '$meta_keyword',
+                    email1 = '$email1',
+                    email2 = '$email2',
+                    phone1 = '$phone1',
+                    phone2 = '$phone2',
+                    address = '$address'
+                    WHERE id='$settingId'
+        ";
+        $result = mysqli_query($conn, $query);
+    }
+
+    if ($result) {
+        redirect('settings.php', 'Settings Saved');
+    } else {
+        redirect('settings.php', 'Something Went Wrong');
+    }
+}
+
 ?>

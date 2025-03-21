@@ -1,5 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/ams/authentication/auth.php');
+//include($_SERVER['DOCUMENT_ROOT'] . '/ams/config/function.php');
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/links.php'); ?>
 <!DOCTYPE html>
