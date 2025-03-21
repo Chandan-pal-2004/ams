@@ -88,4 +88,10 @@
                     </div>
                 </div>
             </div>
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/footer.php'); ?>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/footer.php'); ?>
+        </div>
+    </main>
+
+</body>
+
+</html>

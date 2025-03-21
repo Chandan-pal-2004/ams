@@ -94,3 +94,10 @@
             </div>
 
             <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/footer.php'); ?>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

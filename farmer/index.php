@@ -1,5 +1,6 @@
 <?php $pageTitle = "FARMER"; ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/header.php'); ?>
+
 <body class="g-sidenav-show  bg-gray-100">
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/farmer/includes/sidebar.php'); ?>
@@ -11,4 +12,10 @@
         <div class="container-fluid py-4">
 
             <?= alertMessage(); ?>
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/footer.php'); ?>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/footer.php'); ?>
+        </div>
+    </main>
+
+</body>
+
+</html>
