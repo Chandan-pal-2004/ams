@@ -1,19 +1,36 @@
 <?php $pageTitle = "SERVICES DELETE"; ?>
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/header.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/ams/config/function.php');
 
-<body class="g-sidenav-show  bg-gray-100">
+$paramResult = checkParamId('id');
+if (is_numeric($paramResult)) {
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/admin/includes/sidebar.php'); ?>
+    $serviceId = validate($paramResult);
 
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    $service = getById('services', $serviceId);
+    if ($service['status'] == 200) {
 
-        <div class="container-fluid py-4">
+        $serviceDeleteRes = deleteQuery('services', $serviceId);
+        if ($serviceDeleteRes) {
 
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/footer.php'); ?>
+            $deleteFile = "../" . $service['data']['image'];
+            if (file_exists($deleteFile)) {
+                unlink($deleteFile);
+            }
+            redirect('services.php', 'Service Deleted successfully');
 
-        </div>
-    </main>
 
-</body>
+        } else {
+            redirect('services.php', 'something went wrong');
 
-</html>
+        }
+
+    } else {
+        redirect('services.php', $service['message']);
+
+    }
+
+} else {
+    redirect('services.php', $paramResult);
+}
+
+?>

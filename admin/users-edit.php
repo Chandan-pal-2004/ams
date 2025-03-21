@@ -16,14 +16,14 @@
             <div class="card-header">
                 <h4>
                     Edit Users
-                    <a href="users.php" class="btn btn-danger float-end">Back</a>
+                    <a href="/ams/admin/users.php" class="btn btn-danger float-end">Back</a>
                 </h4>
             </div>
             <div class="card-body">
 
                 <?= alertMessage(); ?>
         
-                        <form action="code.php" method="POST" enctype="multipart/form-data">
+                        <form action="/ams/admin/code.php" method="POST" enctype="multipart/form-data">
         
                             <?php
                             $paramResult = checkParamId('id');
@@ -108,8 +108,6 @@
                                 echo '<h5>' . $user['message'] . '</h5>';
                             }
                             ?>
-        
-        
         
                         </form>
                     </div>

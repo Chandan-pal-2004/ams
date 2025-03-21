@@ -16,7 +16,7 @@
                         <div class="card-header">
                             <h4>
                                 Users Lists
-                                <a href="users-create.php" class="btn btn-primary float-end">Add Users</a>
+                                <a href="/ams/admin/users-create.php" class="btn btn-primary float-end">Add Users</a>
                             </h4>
                         </div>
                         <div class="card-body">
@@ -60,9 +60,9 @@
                                                     ?>
                                                 </td>
                                                 <td>
-                                                    <a href="users-edit.php?id=<?= $userItem['id']; ?>"
+                                                    <a href="/ams/admin/users-edit.php?id=<?= $userItem['id']; ?>"
                                                         class="btn btn-success btn-sm">Edit</a>
-                                                    <a href="users-delete.php?id=<?= $userItem['id']; ?>"
+                                                    <a href="/ams/admin/users-delete.php?id=<?= $userItem['id']; ?>"
                                                         class="btn btn-danger btn-sm mx-2"
                                                         onclick="return confirm('Are you sure you want to delete this data?')">
                                                         Delete

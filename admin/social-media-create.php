@@ -9,6 +9,47 @@
 
         <div class="container-fluid py-4">
 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>
+                                Add Social Media
+                                <a href="social-media.php" class="btn btn-danger float-end">BACK</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+
+
+                            <?= alertMessage(); ?>
+
+                            <form action="code.php" method="POST">
+                                <div class="mb-3">
+                                    <label for="name">Social Media Name</label>
+                                    <input type="text" id="name" name="name" class="form-control" required />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="url">Social Media URL/Link</label>
+                                    <input type="text" id="url" name="url" class="form-control" required />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="status">Status</label>
+                                    <br />
+                                    <input type="checkbox" id="status" name="status"
+                                        style="width: 30px; height: 30px;" />
+                                </div>
+
+                                <div class="mb-3 text-end">
+                                    <button type="submit" name="saveSocialMedia" class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/footer.php'); ?>
 
         </div>

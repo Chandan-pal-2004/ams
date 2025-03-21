@@ -1,19 +1,33 @@
 <?php $pageTitle = "SOCIAL MEDIA DELETE"; ?>
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/header.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/ams/config/function.php');
 
-<body class="g-sidenav-show  bg-gray-100">
+$paramResult = checkParamId('id');
+if (is_numeric($paramResult)) {
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/admin/includes/sidebar.php'); ?>
+    $socialMediaId = validate($paramResult);
 
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    $socialMedia = getById('social_medias', $socialMediaId);
+    if ($socialMedia['status'] == 200) {
 
-        <div class="container-fluid py-4">
+        $socialMediaDeleteRes = deleteQuery('social_medias', $socialMediaId);
+        if ($socialMediaDeleteRes) {
 
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/footer.php'); ?>
+            redirect('social-media.php', 'Social Media Deleted successfully');
 
-        </div>
-    </main>
 
-</body>
+        } else {
+            redirect('social-media.php', 'something went wrong');
 
-</html>
+        }
+
+
+
+    } else {
+        redirect('social-media.php', $socialMedia['message']);
+
+    }
+
+} else {
+    redirect('social-media.php', $paramResult);
+}
+ ?>

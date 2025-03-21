@@ -5,7 +5,7 @@ $pageName = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/"
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
     id="sidenav-main">
     <div class="sidenav-header">
-        <a class="navbar-brand m-0" href="index.php">
+        <a class="navbar-brand m-0" href="/ams/admin/index.php">
             <h4>Farm Services</h4>
         </a>
     </div>
@@ -15,7 +15,7 @@ $pageName = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/"
 
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link <?= $pageName == 'index.php' ? 'active' : ''; ?>" href="index.php">
+                <a class="nav-link <?= $pageName == 'index.php' ? 'active' : ''; ?>" href="/ams/admin/index.php">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i
@@ -29,7 +29,7 @@ $pageName = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/"
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">My Profile</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?= $pageName == 'profile.php' ? 'active' : ''; ?>" href="profile.php">
+                <a class="nav-link <?= $pageName == 'profile.php' ? 'active' : ''; ?>" href="/ams/authentication/profile.php">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i
@@ -43,7 +43,7 @@ $pageName = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/"
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link  <?= $pageName == 'enquries.php' ? 'active' : ''; ?>" href="enquries.php">
+                <a class="nav-link  <?= $pageName == 'enquries.php' ? 'active' : ''; ?>" href="/ams/admin/enquries.php">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i
@@ -60,7 +60,7 @@ $pageName = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/"
                 <a class="nav-link  <?= $pageName == 'services.php' ? 'active' : ''; ?>
           <?= $pageName == 'services-create.php' ? 'active' : ''; ?>
           <?= $pageName == 'services-edit.php' ? 'active' : ''; ?>
-          " href="services.php">
+          " href="/ams/admin/services.php">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i
@@ -77,7 +77,7 @@ $pageName = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/"
                 <a class="nav-link  <?= $pageName == 'users.php' ? 'active' : ''; ?>
           <?= $pageName == 'users-create.php' ? 'active' : ''; ?>
           <?= $pageName == 'users-edit.php' ? 'active' : ''; ?>
-          " href="users.php">
+          " href="/ams/admin/users.php">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i
@@ -94,7 +94,7 @@ $pageName = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/"
                 <a class="nav-link <?= $pageName == 'social-media.php' ? 'active' : ''; ?>
           <?= $pageName == 'social-media-create.php' ? 'active' : ''; ?>
           <?= $pageName == 'social-media-edit.php' ? 'active' : ''; ?>
-           " href="social-media.php">
+           " href="/ams/admin/social-media.php">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i
@@ -108,7 +108,7 @@ $pageName = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/"
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Settings</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?= $pageName == 'settings.php' ? 'active' : ''; ?>" href="settings.php">
+                <a class="nav-link <?= $pageName == 'settings.php' ? 'active' : ''; ?>" href="/ams/admin/settings.php">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i

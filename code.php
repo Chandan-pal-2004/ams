@@ -10,10 +10,16 @@ use PHPMailer\PHPMailer\Exception;
 
 if (isset($_POST['registerBtn'])) {
     $name = validate($_POST['name']);
-    $email = validate($_POST['email']);
+    $emailInput = validate($_POST['email']); // Get raw email input first
     $phone = validate($_POST['phone']);
     $password = validate($_POST['password']);
     $role = validate($_POST['role']);
+
+    // Ensure the phone number is exactly 10 digits
+    if (!preg_match("/^\d{10}$/", $phone)) {
+        redirect('/ams/register.php', 'Invalid phone number! It must be exactly 10 digits.');
+        exit;
+    }
 
     // Check if the email already exists in the database
     $email_check_query = "SELECT * FROM users WHERE email='$email' LIMIT 1";

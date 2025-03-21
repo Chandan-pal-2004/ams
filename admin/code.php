@@ -17,6 +17,12 @@ if (isset($_POST['saveUser'])) {
     $is_ban = isset($_POST['is_ban']) ? 1 : 0;
     $role = validate($_POST['role']);
 
+    // Ensure the phone number is exactly 10 digits
+    if (!preg_match("/^\d{10}$/", $phone)) {
+        redirect('users-create.php', 'Invalid phone number! It must be exactly 10 digits.');
+        exit;
+    }
+
     // Check if email already exists
     $check_query = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($conn, $check_query);
