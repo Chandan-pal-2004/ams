@@ -7,9 +7,9 @@
 </title>
 <link rel="icon" type="image/png" href="/ams/assets/images/tractorlogo.png">
 
-    <link rel="stylesheet" href="/ams/assets/css/style.css">
-    <link rel="stylesheet" href="/ams/assets/css/styles.css">
-    
+<link rel="stylesheet" href="/ams/assets/css/style.css">
+<link rel="stylesheet" href="/ams/assets/css/styles.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
 <!--     Fonts and icons     -->
@@ -43,3 +43,13 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/ams/includes/style.js"></script>
+
+<script>
+
+    // Force refresh when coming back from cache
+    window.addEventListener("pageshow", function (event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    });
+</script>

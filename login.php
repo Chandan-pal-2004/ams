@@ -2,7 +2,7 @@
 $pageTitle = "LOGIN";
 include($_SERVER['DOCUMENT_ROOT'] . '/ams/includes/header.php');
 
-if (isset($_SESSION['auth']) && isset($_SESSION['loggedInUserRole']) && isset($_SESSION['loggedInUserId']) && isset($_SESSION['loggedInUserName']) && isset($_SESSION['loggedInUserEmail'])) {
+if (isset($_SESSION['auth'])) {
 
     // Get role from session
     $loggedInUserRole = $_SESSION['loggedInUserRole'];
@@ -15,6 +15,7 @@ if (isset($_SESSION['auth']) && isset($_SESSION['loggedInUserRole']) && isset($_
     } elseif ($loggedInUserRole == 'user') {
         redirect('/ams/user/index.php', 'You Are Already Logged In as User!');
     } else {
+        logoutSession();
         redirect('/ams/index.php', 'Log In First!');
     }
 }

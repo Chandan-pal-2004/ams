@@ -162,6 +162,7 @@ if (isset($_POST['loginBtn'])) {
                     redirect('/ams/user/index.php', 'Welcome User!');
                     break;
                 default:
+                    logoutSession();
                     redirect('/ams/index.php', 'Something Went Wrong!');
                     break;
             }

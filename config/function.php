@@ -118,4 +118,5 @@ function logoutSession()
     unset($_SESSION['loggedInUserName']);
     unset($_SESSION['loggedInUserEmail']);
 }
+
 ?>
