@@ -1,3 +1,4 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/ams/includes/footer-content.php'); ?>
 <!-- Footer Section -->
 <footer class="footer">
     <div class="flag">
