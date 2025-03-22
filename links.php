@@ -1,14 +1,15 @@
 <title>
-    <?php if (isset($pageTitle)) {
-        echo $pageTitle;
-    } else {
-        echo webSetting('title') ?? 'AMS';
-    } ?>
+  <?php if (isset($pageTitle)) {
+    echo $pageTitle;
+  } else {
+    echo webSetting('title') ?? 'AMS';
+  } ?>
 </title>
 <link rel="icon" type="image/png" href="/ams/assets/images/tractorlogo.png">
 
 <link rel="stylesheet" href="/ams/assets/css/style.css">
 <link rel="stylesheet" href="/ams/assets/css/styles.css">
+<link rel="stylesheet" href="/ams/assets/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
@@ -28,6 +29,8 @@
 <script src="/ams/assets/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="/ams/assets/js/plugins/smooth-scrollbar.min.js"></script>
 <script src="/ams/assets/js/plugins/chartjs.min.js"></script>
+<script src="/ams/assets/js/jquery-3.7.1.min.js"></script>
+<script src="/ams/assets/js/core/bootstrap.bundle.min.js"></script>
 
 <!-- Control Center for Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/ams/assets/js/soft-ui-dashboard.min.js?v=1.1.0"></script>
@@ -46,12 +49,12 @@
 
 <script>
 
-    // Force refresh when coming back from cache
-    window.addEventListener("pageshow", function (event) {
-        if (event.persisted) {
-            window.location.reload();
-        }
-    });
+  // Force refresh when coming back from cache
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  });
 </script>
 <script>
   $(document).ready(function () {

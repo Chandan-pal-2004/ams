@@ -58,10 +58,27 @@ function validate($inputData)
 
 function redirect($url, $status)
 {
+    if (!headers_sent()) {
+        $_SESSION['status'] = $status;
+        header('Location: ' . $url);
+        exit;
+    } else {
+        echo "<script>
+                alert('$status');
+                window.location.href='$url';
+              </script>";
+        exit;
+    }
+}
+
+/*
+function redirect($url, $status)
+{
     $_SESSION['status'] = "$status";
     header('Location:' . $url);
     exit;
 }
+*/
 
 function alertMessage()
 {
